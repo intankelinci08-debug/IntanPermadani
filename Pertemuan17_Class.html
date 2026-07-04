@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Mahasiswa</title>
+</head>
+<body>
+    <script>
+        // Membuat Class Utama (Parent Class)
+        class Mahasiswa {
+            constructor(nim, nama, jurusan, fakultas) {
+                this.nim = nim;
+                this.nama = nama;
+                this.jurusan = jurusan;
+                this.fakultas = fakultas;
+            }
+
+            // Method untuk menghitung umur berdasarkan tahun lahir
+            age(tahun_lahir) {
+                let tahunSekarang = new Date().getFullYear();
+                let umur = tahunSekarang - tahun_lahir; // Diperbaiki: menghitung selisih tahun
+                return umur;
+            }
+        }
+
+        // Membuat Objek dari Class Mahasiswa
+        let mahasiswa1 = new Mahasiswa("123456789", "John Doe", "Teknik Informatika", "Ilmu Komputer");
+        
+        // Menampilkan output ke Console
+        console.log("Mahasiswa 1:", mahasiswa1);
+        console.log("Nim:", mahasiswa1.nim);
+        console.log("Nama:", mahasiswa1.nama);
+        console.log("Jurusan:", mahasiswa1.jurusan);
+        console.log("Fakultas:", mahasiswa1.fakultas);
+        console.log("Umur:", mahasiswa1.age(2000)); // Mengirim parameter tahun lahir 2000
+
+        // Penerapan Kosep Inheritance (Child Class)
+        class MahasiswaBeasiswa extends Mahasiswa {
+            constructor(nim, nama, jurusan, fakultas, jenisBeasiswa) {
+                super(nim, nama, jurusan, fakultas); // Mengambil properti dari class induk
+                this.jenisBeasiswa = jenisBeasiswa;
+            }
+        }
+
+        // Contoh membuat objek dari class inheritance
+        let mahasiswa2 = new MahasiswaBeasiswa("987654321", "Jane Doe", "Sistem Informasi", "Ilmu Komputer", "KIP Kuliah");
+        console.log("Mahasiswa Beasiswa:", mahasiswa2);
+        console.log("Jenis Beasiswa:", mahasiswa2.jenisBeasiswa);
+        console.log("Umur Mahasiswa Beasiswa:", mahasiswa2.age(2001)); // Method age() otomatis bisa dipakai
+    </script>
+</body>
+</html>
