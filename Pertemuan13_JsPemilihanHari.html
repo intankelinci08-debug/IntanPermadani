@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Pemilihan Hari</title>
+</head>
+<body>
+    <script>
+        // Contoh pemilihan dengan switch case menampilkan hari dari date function [cite: 251]
+        let date = new Date(); // [cite: 254]
+        let day = date.getDay(); // [cite: 256]
+
+        switch(day) { // [cite: 257]
+            case 0:
+                console.log("Hari Minggu"); // [cite: 259]
+                break; // [cite: 260]
+            case 1:
+                console.log("Hari Senin"); // [cite: 262]
+                break; // [cite: 263]
+            case 2:
+                console.log("Hari Selasa"); // [cite: 265]
+                break; // [cite: 266]
+            case 3:
+                console.log("Hari Rabu"); // [cite: 268]
+                break; // [cite: 269]
+            case 4:
+                console.log("Hari Kamis"); // [cite: 271]
+                break; // [cite: 272]
+            case 5:
+                console.log("Hari Jumat"); // [cite: 274]
+                break; // [cite: 275]
+            case 6:
+                console.log("Hari Sabtu"); // [cite: 277]
+                break; // [cite: 278]
+            default:
+                console.log("Hari tidak valid"); // [cite: 280]
+        }
+    </script>
+</body>
+</html>
