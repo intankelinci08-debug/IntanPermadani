@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitra Teknik AC - Layanan AC Modern</title>
+    <style>
+        /* CSS Reset & Variabel */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+        :root {
+            --primary-color: #007BFF;
+            --primary-hover: #0056b3;
+            --accent-color: #FFC107;
+            --bg-color: #F8F9FA;
+            --dark-color: #212529;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Hero Section dengan Form Booking */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            gap: 40px;
+            background: linear-gradient(135deg, #fff 50%, #e6f2ff 100%);
+        }
+        .hero-text {
+            flex: 1.2;
+        }
+        .hero-text h1 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        .hero-text p {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        
+        /* Form Booking Card (UX UI Baru) */
+        .booking-card {
+            flex: 0.8;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e1e8ed;
+        }
+        .booking-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--dark-color);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #495057;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: #fff;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.15);
+        }
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-submit:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Paket Harga Spesial Section */
+        .pricing-section {
+            padding: 60px 8%;
+            text-align: center;
+            background: #fff;
+        }
+        .pricing-section h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .pricing-section p {
+            color: #6c757d;
+            margin-bottom: 40px;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .price-card {
+            background: var(--bg-color);
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            padding: 30px 20px;
+            transition: 0.3s;
+            position: relative;
+        }
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .price-card.featured {
+            border: 2px solid var(--primary-color);
+            background: #fdfeff;
+        }
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 3px 15px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+        .price-card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .price span {
+            font-size: 14px;
+            color: #6c757d;
+            font-weight: normal;
+        }
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+            text-align: left;
+            padding-left: 10px;
+        }
+        .price-card ul li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #495057;
+        }
+        .price-card ul li::before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+        }
+        .btn-package {
+            display: block;
+            background: #fff;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .price-card.featured .btn-package {
+            background: var(--accent-color);
+            color: var(--dark-color);
+            border: none;
+        }
+        .price-card.featured .btn-package:hover {
+            background: #e0a800;
+        }
+        .btn-package:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Responsif Mobile */
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            nav { display: none; }
+            .hero { flex-direction: column; padding: 30px 5%; gap: 30px; }
+            .hero-text { text-align: center; }
+            .hero-text h1 { font-size: 28px; }
+            .booking-card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">MitraTeknik AC</div>
+        <nav>
+            <a href="#paket">Paket Harga</a>
+            <a href="#booking">Form Booking</a>
+        </nav>
+        <a href="https://wa.me/628123456789" class="btn-whatsapp" target="_blank">Hubungi Admin</a>
+    </header>
+
+    <section class="hero" id="booking">
+        <div class="hero-text">
+            <h1>Layanan Service AC Profesional & Bergaransi</h1>
+            <p>Butuh cuci AC atau perbaikan cepat? Jangan biarkan ruangan Anda panas. Isi data booking di samping, teknisi kami siap meluncur langsung ke lokasi rumah atau kantor Anda.</p>
+            <p style="font-weight: bold; color: #28a745;">✓ Garansi 30 Hari &nbsp; ✓ Teknisi Jujur &nbsp; ✓ Transparan</p>
+        </div>
+
+        <div class="booking-card">
+            <h3>Form Jadwal Booking</h3>
+            <form onsubmit="alert('Pesanan Terkirim! Teknisi akan menghubungi Anda.'); return false;">
+                <div class="form-group">
+                    <label for="layanan">Pilih Jenis Layanan</label>
+                    <select id="layanan" required>
+                        <option value="">-- Pilih Layanan --</option>
+                        <option value="cuci">Cuci AC Berkala</option>
+                        <option value="perbaikan">Perbaikan AC / Bocor</option>
+                        <option value="pasang">Bongkar Pasang AC</option>
+                        <option value="paket-combo">Paket Combo Spesial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="jumlah">Jumlah Unit AC</label>
+                    <input type="number" id="jumlah" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="tanggal">Tanggal Kunjungan</label>
+                    <input type="date" id="tanggal" required>
+                </div>
+                <div class="form-group">
+                    <label for="telp">Nomor WhatsApp</label>
+                    <input type="tel" id="telp" placeholder="Contoh: 081234567xx" required>
+                </div>
+                <button type="submit" class="btn-submit">Konfirmasi Jadwal</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="paket">
+        <h2>Daftar Paket Harga Spesial</h2>
+        <p>Harga jujur, transparan, dan bersahabat tanpa biaya tambahan tersembunyi.</p>
+        
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h4>Paket Standar Cuci</h4>
+                <div class="price">Rp 75.000 <span>/ unit</span></div>
+                <ul>
+                    <li>Pembersihan Evaporator</li>
+                    <li>Pembersihan Outdoor Unit</li>
+                    <li>Cek Tekanan Freon</li>
+                    <li>Garansi Cuci 7 Hari</li>
+                </ul>
+                <a href="#booking" class="btn-package">Pilih Paket</a>
+            </div>
+
+            <div class="price-card featured">
+                <div class="badge">Paling Hemat</div>
+                <h4>Paket Combo Spesial</h4>
+                <div class="price">Rp 195.000 <span>/ unit</span></div>
+                <ul>
+                    <li>Cuci AC Super Bersih</li>
+                    <li>Tambah Freon (R32/R410)</li>
+                    <li>Pembersihan Jalur Pembuangan</li>
+                    <li>Garansi Penuh 30 Hari</li>
+                </ul>
+                <a href="#booking" class="btn-package">Ambil Promo</a>
+            </div>
+
+            <div class="price-card">
+                <h4>Bongkar Pasang</h4>
+                <div class="price">Rp 250.000 <span>/ unit</span></div>
+                <ul>
+                    <li>Pelepasan Unit Lama</li>
+                    <li>Pemasangan Unit Baru</li>
+                    <li>Vacuum Standar Sistem</li>
+                    <li>Garansi Pasang 30 Hari</li>
+                </ul>
+                <a href="#booking" class="btn-package">Pilih Paket</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
