@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Dialog Example</title>
+    <script>
+        function startInteraction() {
+            // Alert - Menampilkan pesan selamat datang
+            alert("Selamat datang di program interaktif!");
+
+            // Prompt - Meminta input nama dari pengguna
+            const name = prompt("Masukkan nama Anda:", "Nama Anda");
+
+            // Validasi jika user menekan batal atau mengosongkan nama
+            if (name === null || name.trim() === "") {
+                alert("Anda tidak memasukkan nama!");
+                return;
+            }
+
+            // Confirm - Meminta konfirmasi kelanjutan program
+            const proceed = confirm("Halo, " + name + ". Apakah Anda ingin melanjutkan?");
+            if (!proceed) {
+                alert("Anda memilih untuk keluar. Sampai jumpa!");
+                return;
+            }
+
+            // Menampilkan form jika user memilih OK pada confirm box
+            document.getElementById("formSection").style.display = "block";
+        }
+
+        function submitForm(event) {
+            event.preventDefault(); // Mencegah reload halaman saat form dikirim
+
+            const age = document.getElementById("age").value;
+            const email = document.getElementById("email").value;
+
+            // Validasi input form
+            if (age.trim() === "" || email.trim() === "") {
+                alert("Harap isi semua data pada form!");
+                return;
+            }
+
+            // Menampilkan pesan sukses beserta data yang diinput
+            alert("Data berhasil dikirim!\nUmur: " + age + "\nEmail: " + email);
+        }
+    </script>
+</head>
+<body onload="startInteraction()">
+
+    <h1>Program Interaktif</h1>
+
+    <div id="formSection" style="display: none;">
+        <h2>Form Data</h2>
+        <form onsubmit="submitForm(event)">
+            <label for="age">Umur:</label>
+            <input type="number" id="age" name="age" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <button type="submit">Kirim</button>
+        </form>
+    </div>
+
+</body>
+</html>
