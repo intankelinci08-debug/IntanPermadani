@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Contoh objek mahasiswa: nim, nama, jurusan, fakultas
+        let mahasiswa = {
+            nim: "231011450292",
+            nama: "Intan Permadani",
+            jurusan: "Teknik Informatika",
+            fakultas: "Ilmu Komputer"
+        };
+
+        console.log("Mahasiswa:", mahasiswa);
+        // Tampilkan per property/index objek mahasiswa
+        console.log("NIM:", mahasiswa.nim);
+        console.log("NAMA: ", mahasiswa.nama);
+        console.log("JURUSAN:", mahasiswa.jurusan);
+        console.log("FAKULTAS:", mahasiswa.fakultas);
+
+        // CONTOH OBJEK BERISI FUNCTION
+        let calculator = {
+            // Variabel biasa
+            nilai1: 10,
+            nilai2: 5,
+            
+            add: function(a, b) {
+                return a + b;
+            },
+            subtract: function(a, b){
+                return a - b;
+            },
+            multiply: function(a, b) {
+                return a * b;
+            },
+            divide: function(a, b) {
+                if (b !== 0) {
+                    return a / b;
+                } else {
+                    return "Tidak bisa membagi dengan nol";
+                }
+            }
+        };
+
+        // Contoh penggunaan fungsi dalam objek calculator
+        console.log("Penjumlahan: ", calculator.add(calculator.nilai1, calculator.nilai2));
+        console.log("Pengurangan: ", calculator.subtract(calculator.nilai1, calculator.nilai2));
+        console.log("Perkalian: ", calculator.multiply(calculator.nilai1, calculator.nilai2));
+        console.log("Pembagian: ", calculator.divide(calculator.nilai1, calculator.nilai2));
+    </script>
+</body>
+</html>
